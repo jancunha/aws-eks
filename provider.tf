@@ -5,6 +5,11 @@ terraform {
       version = "5.58.0"
     }
   }
+
+  backend "s3" {
+    bucket = "tf-stage-backup"
+    key    = "terraform/eks-lab.tfstate"
+  }
 }
 
 provider "aws" {
