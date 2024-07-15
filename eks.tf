@@ -2,8 +2,8 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "20.17.2"
 
-  cluster_name    = "lab-eks"
-  cluster_version = "1.30"
+  cluster_name    = var.aws_eks_name
+  cluster_version = var.aws_eks_version
 
   cluster_endpoint_public_access = true
 
@@ -57,8 +57,5 @@ module "eks" {
   #     }
   #   }
 
-  tags = {
-    Environment = "lab"
-    Terraform   = "true"
-  }
+  tags = var.aws_project_tags
 }
